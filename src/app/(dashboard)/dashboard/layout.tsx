@@ -19,7 +19,7 @@ interface LayoutProps {
 
 // Done after the video and optional: add page metadata
 export const metadata = {
-  title: "Realtime-App",
+  title: "Realtime-ChatApp",
   description: "Your dashboard",
 };
 

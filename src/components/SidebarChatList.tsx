@@ -28,6 +28,7 @@ const SidebarChatList: FC<SidebarChatListProps> = ({ friends, sessionId }) => {
     pusherClient.subscribe(toPusherKey(`user:${sessionId}:friends`));
 
     const newFriendHandler = (newFriend: User) => {
+      console.log("received new user", newFriend);
       setActiveChats((prev) => [...prev, newFriend]);
     };
 
@@ -38,9 +39,8 @@ const SidebarChatList: FC<SidebarChatListProps> = ({ friends, sessionId }) => {
 
       if (!shouldNotify) return;
 
-      //should be notify
+      // should be notified
       toast.custom((t) => (
-        //custom component
         <UnseenChatToast
           t={t}
           sessionId={sessionId}
@@ -73,6 +73,7 @@ const SidebarChatList: FC<SidebarChatListProps> = ({ friends, sessionId }) => {
       });
     }
   }, [pathname]);
+
   return (
     <ul role="list" className="max-h-[25rem] overflow-y-auto -mx-2 space-y-1">
       {activeChats.sort().map((friend) => {
